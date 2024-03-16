@@ -1,7 +1,8 @@
+---
 layout: page
-title: "Ruby"
+title: "content"
 permalink: /Content
-
+---
 
 
 
