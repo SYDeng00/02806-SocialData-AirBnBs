@@ -1,12 +1,61 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>简单的 HTML 页面</title>
-</head>
-<body>
-    <h1>欢迎来到我的网站！</h1>
-    <p>这是一个非常简单的 HTML 页面示例。</p>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bokeh Plot</title>
+    <style>
+      html, body {
+        box-sizing: border-box;
+        display: flow-root;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.3.4.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+  </head>
+  <body>
+    <div id="f18801e5-f7ea-4b99-a4a6-9bdc0fed21d3" data-root-id="p1176" style="display: contents;"></div>
+  
+    <script type="application/json" id="p1259">
+      {"21cd9d0a-ee29-4051-9b67-76759ea1d988":{"version":"3.3.4","title":"Bokeh Application","roots":[{"type":"object","name":"Figure","id":"p1176","attributes":{"width":800,"height":400,"x_range":{"type":"object","name":"FactorRange","id":"p1186","attributes":{"factors":["2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018"]}},"y_range":{"type":"object","name":"DataRange1d","id":"p1178"},"x_scale":{"type":"object","name":"CategoricalScale","id":"p1187"},"y_scale":{"type":"object","name":"LinearScale","id":"p1188"},"title":{"type":"object","name":"Title","id":"p1179","attributes":{"text":"Yearly Crime Occurrences","text_font_size":"16pt","align":"center"}},"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1217","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1173","attributes":{"selected":{"type":"object","name":"Selection","id":"p1174","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1175"},"data":{"type":"map","entries":[["Year",["2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018"]],["VEHICLE THEFT",{"type":"ndarray","array":{"type":"bytes","data":"rDsAAJhFAAC3RgAAXxwAACwZAACaFwAAMhQAAPAQAACHEgAAHhgAAFoYAAC9GwAA/x4AABEZAABJFgAAvQUAAA=="},"shape":[16],"dtype":"int32","order":"little"}],["BURGLARY",{"type":"ndarray","array":{"type":"bytes","data":"fRcAAEEaAACLGwAANxsAAC4VAAASFgAA9hQAAE4TAAA/EwAANRgAABAYAACRFwAADxcAAJ8WAADEFgAAMAgAAA=="},"shape":[16],"dtype":"int32","order":"little"}],["STOLEN PROPERTY",{"type":"ndarray","array":{"type":"bytes","data":"CAMAAHQCAAAQAgAAKAIAAPkBAADqAQAAgAIAAIkCAADsAgAAbgMAAJMEAAAiBAAAnwMAAF0DAAAOAwAAAQEAAA=="},"shape":[16],"dtype":"int32","order":"little"}],["ROBBERY",{"type":"ndarray","array":{"type":"bytes","data":"KQwAAOEMAACiDQAAvw8AAFgPAAA2EAAAtA0AAKAMAACSDAAACg8AAOAPAAAQDQAAcQ4AAJ4MAADBDAAAGgQAAA=="},"shape":[16],"dtype":"int32","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1218","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1219"}}},"glyph":{"type":"object","name":"VBar","id":"p1214","attributes":{"x":{"type":"field","field":"Year","transform":{"type":"object","name":"Dodge","id":"p1210","attributes":{"value":-0.2,"range":{"id":"p1186"}}}},"width":{"type":"value","value":0.025},"top":{"type":"field","field":"VEHICLE THEFT"},"line_color":{"type":"value","value":"#5e4fa2"},"fill_color":{"type":"value","value":"#5e4fa2"},"hatch_color":{"type":"value","value":"#5e4fa2"}}},"nonselection_glyph":{"type":"object","name":"VBar","id":"p1215","attributes":{"x":{"type":"field","field":"Year","transform":{"id":"p1210"}},"width":{"type":"value","value":0.025},"top":{"type":"field","field":"VEHICLE THEFT"},"line_color":{"type":"value","value":"#5e4fa2"},"line_alpha":{"type":"value","value":0.1},"fill_color":{"type":"value","value":"#5e4fa2"},"fill_alpha":{"type":"value","value":0.1},"hatch_color":{"type":"value","value":"#5e4fa2"},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"VBar","id":"p1216","attributes":{"x":{"type":"field","field":"Year","transform":{"id":"p1210"}},"width":{"type":"value","value":0.025},"top":{"type":"field","field":"VEHICLE THEFT"},"line_color":{"type":"value","value":"#5e4fa2"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"#5e4fa2"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"value","value":"#5e4fa2"},"hatch_alpha":{"type":"value","value":0.2}}}}},{"type":"object","name":"GlyphRenderer","id":"p1229","attributes":{"data_source":{"id":"p1173"},"view":{"type":"object","name":"CDSView","id":"p1230","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1231"}}},"glyph":{"type":"object","name":"VBar","id":"p1226","attributes":{"x":{"type":"field","field":"Year","transform":{"type":"object","name":"Dodge","id":"p1222","attributes":{"value":-0.17500000000000002,"range":{"id":"p1186"}}}},"width":{"type":"value","value":0.025},"top":{"type":"field","field":"BURGLARY"},"line_color":{"type":"value","value":"#3288bd"},"fill_color":{"type":"value","value":"#3288bd"},"hatch_color":{"type":"value","value":"#3288bd"}}},"nonselection_glyph":{"type":"object","name":"VBar","id":"p1227","attributes":{"x":{"type":"field","field":"Year","transform":{"id":"p1222"}},"width":{"type":"value","value":0.025},"top":{"type":"field","field":"BURGLARY"},"line_color":{"type":"value","value":"#3288bd"},"line_alpha":{"type":"value","value":0.1},"fill_color":{"type":"value","value":"#3288bd"},"fill_alpha":{"type":"value","value":0.1},"hatch_color":{"type":"value","value":"#3288bd"},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"VBar","id":"p1228","attributes":{"x":{"type":"field","field":"Year","transform":{"id":"p1222"}},"width":{"type":"value","value":0.025},"top":{"type":"field","field":"BURGLARY"},"line_color":{"type":"value","value":"#3288bd"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"#3288bd"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"value","value":"#3288bd"},"hatch_alpha":{"type":"value","value":0.2}}}}},{"type":"object","name":"GlyphRenderer","id":"p1240","attributes":{"data_source":{"id":"p1173"},"view":{"type":"object","name":"CDSView","id":"p1241","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1242"}}},"glyph":{"type":"object","name":"VBar","id":"p1237","attributes":{"x":{"type":"field","field":"Year","transform":{"type":"object","name":"Dodge","id":"p1233","attributes":{"value":-0.15000000000000002,"range":{"id":"p1186"}}}},"width":{"type":"value","value":0.025},"top":{"type":"field","field":"STOLEN PROPERTY"},"line_color":{"type":"value","value":"#66c2a5"},"fill_color":{"type":"value","value":"#66c2a5"},"hatch_color":{"type":"value","value":"#66c2a5"}}},"nonselection_glyph":{"type":"object","name":"VBar","id":"p1238","attributes":{"x":{"type":"field","field":"Year","transform":{"id":"p1233"}},"width":{"type":"value","value":0.025},"top":{"type":"field","field":"STOLEN PROPERTY"},"line_color":{"type":"value","value":"#66c2a5"},"line_alpha":{"type":"value","value":0.1},"fill_color":{"type":"value","value":"#66c2a5"},"fill_alpha":{"type":"value","value":0.1},"hatch_color":{"type":"value","value":"#66c2a5"},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"VBar","id":"p1239","attributes":{"x":{"type":"field","field":"Year","transform":{"id":"p1233"}},"width":{"type":"value","value":0.025},"top":{"type":"field","field":"STOLEN PROPERTY"},"line_color":{"type":"value","value":"#66c2a5"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"#66c2a5"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"value","value":"#66c2a5"},"hatch_alpha":{"type":"value","value":0.2}}}}},{"type":"object","name":"GlyphRenderer","id":"p1251","attributes":{"data_source":{"id":"p1173"},"view":{"type":"object","name":"CDSView","id":"p1252","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1253"}}},"glyph":{"type":"object","name":"VBar","id":"p1248","attributes":{"x":{"type":"field","field":"Year","transform":{"type":"object","name":"Dodge","id":"p1244","attributes":{"value":-0.125,"range":{"id":"p1186"}}}},"width":{"type":"value","value":0.025},"top":{"type":"field","field":"ROBBERY"},"line_color":{"type":"value","value":"#abdda4"},"fill_color":{"type":"value","value":"#abdda4"},"hatch_color":{"type":"value","value":"#abdda4"}}},"nonselection_glyph":{"type":"object","name":"VBar","id":"p1249","attributes":{"x":{"type":"field","field":"Year","transform":{"id":"p1244"}},"width":{"type":"value","value":0.025},"top":{"type":"field","field":"ROBBERY"},"line_color":{"type":"value","value":"#abdda4"},"line_alpha":{"type":"value","value":0.1},"fill_color":{"type":"value","value":"#abdda4"},"fill_alpha":{"type":"value","value":0.1},"hatch_color":{"type":"value","value":"#abdda4"},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"VBar","id":"p1250","attributes":{"x":{"type":"field","field":"Year","transform":{"id":"p1244"}},"width":{"type":"value","value":0.025},"top":{"type":"field","field":"ROBBERY"},"line_color":{"type":"value","value":"#abdda4"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"#abdda4"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"value","value":"#abdda4"},"hatch_alpha":{"type":"value","value":0.2}}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1185","attributes":{"tools":[{"type":"object","name":"PanTool","id":"p1199"},{"type":"object","name":"WheelZoomTool","id":"p1200","attributes":{"renderers":"auto"}},{"type":"object","name":"BoxZoomTool","id":"p1201","attributes":{"overlay":{"type":"object","name":"BoxAnnotation","id":"p1202","attributes":{"syncable":false,"level":"overlay","visible":false,"left":{"type":"number","value":"nan"},"right":{"type":"number","value":"nan"},"top":{"type":"number","value":"nan"},"bottom":{"type":"number","value":"nan"},"left_units":"canvas","right_units":"canvas","top_units":"canvas","bottom_units":"canvas","line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5}}}},{"type":"object","name":"SaveTool","id":"p1207"},{"type":"object","name":"ResetTool","id":"p1208"},{"type":"object","name":"HelpTool","id":"p1209"}]}},"left":[{"type":"object","name":"LinearAxis","id":"p1194","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1195","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1196"},"axis_label":"Number of Occurrences","major_label_policy":{"type":"object","name":"AllLabels","id":"p1197"}}}],"below":[{"type":"object","name":"CategoricalAxis","id":"p1189","attributes":{"ticker":{"type":"object","name":"CategoricalTicker","id":"p1190"},"formatter":{"type":"object","name":"CategoricalTickFormatter","id":"p1191"},"axis_label":"Year","major_label_policy":{"type":"object","name":"AllLabels","id":"p1192"}}}],"center":[{"type":"object","name":"Grid","id":"p1193","attributes":{"axis":{"id":"p1189"}}},{"type":"object","name":"Grid","id":"p1198","attributes":{"dimension":1,"axis":{"id":"p1194"}}},{"type":"object","name":"Legend","id":"p1220","attributes":{"location":"top_center","orientation":"horizontal","click_policy":"mute","items":[{"type":"object","name":"LegendItem","id":"p1221","attributes":{"label":{"type":"value","value":"VEHICLE THEFT"},"renderers":[{"id":"p1217"}]}},{"type":"object","name":"LegendItem","id":"p1232","attributes":{"label":{"type":"value","value":"BURGLARY"},"renderers":[{"id":"p1229"}]}},{"type":"object","name":"LegendItem","id":"p1243","attributes":{"label":{"type":"value","value":"STOLEN PROPERTY"},"renderers":[{"id":"p1240"}]}},{"type":"object","name":"LegendItem","id":"p1254","attributes":{"label":{"type":"value","value":"ROBBERY"},"renderers":[{"id":"p1251"}]}}]}}]}}]}}
+    </script>
+    <script type="text/javascript">
+      (function() {
+        const fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+              const docs_json = document.getElementById('p1259').textContent;
+              const render_items = [{"docid":"21cd9d0a-ee29-4051-9b67-76759ea1d988","roots":{"p1176":"f18801e5-f7ea-4b99-a4a6-9bdc0fed21d3"},"root_ids":["p1176"]}];
+              root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(function(root) {
+                  if (root.Bokeh !== undefined) {
+                    clearInterval(timer);
+                    embed_document(root);
+                  } else {
+                    attempts++;
+                    if (attempts > 100) {
+                      clearInterval(timer);
+                      console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                    }
+                  }
+                }, 10, root)
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+        else document.addEventListener("DOMContentLoaded", fn);
+      })();
+    </script>
+  </body>
 </html>
