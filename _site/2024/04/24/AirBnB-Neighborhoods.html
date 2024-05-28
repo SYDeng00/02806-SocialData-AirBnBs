@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    AirBnBs in Copenhagen - Social Data Visualization - AirBnB Data Analysis
+    
+  </title>
+
+  <meta name="description" content="Explainer notebook">
+
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/2024/04/24/AirBnB-Neighborhoods.html">
+  <link rel="alternate" type="application/rss+xml" title="Social Data Visualization - AirBnB Data Analysis" href="/feed.xml">
+
+</head>
+
+
+<body>
+
+  <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="/">Social Data Visualization - AirBnB Data Analysis</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Page Header -->
+
+<header class="masthead" style="background-image: url('/images/nyhavn.jpg')">
+  
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>AirBnBs in Copenhagen</h1>
+            
+            <h2 class="subheading">A small story on the company's status in Denmark's capital</h2>
+            
+            <span class="meta">Posted by
+              <a href="#">Shah, Daniel & Dan</a>
+              on April 24, 2024 &middot; <span class="reading-time" title="Estimated read time">
+  
+   13 mins  read </span>
+
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+        <h3 id="explainer-notebook">Explainer notebook</h3>
+
+<p>To see the explainer notebook used to develop this assignment, click <a href="https://nbviewer.org/github/dmeseguerw/DataViz-AirBnB/blob/main/Code/Final.ipynb?flush_cache=true">here</a></p>
+
+<h3 id="about-airbnb-">About AirBnB 🏨🏠</h3>
+
+<p>20 years ago, if you wanted to travel to another city and stay there for a while, the only options you had were either to find a hotel or motel room. Hotels held a monopoly over the lodging industry, which allowed them to charge exorbitant amounts for relatively short duration of stays, simply because people didn’t have any other choice. In 2007, the company AirBnB was founded in San Francisco, as a hospitality service that connects people who want to rent out their properties with people who are looking for accomodations. Since then, AirBnB has grown to over 5 million hosts, with more than 1.5 billion guests, in almost every country in the world. The idea is simple but effective: creating a safe platform for people to show the places they wanted to rent so they could earn some income, and also for visitors to rent places that felt like “home” <sup id="fnref:airbnb" role="doc-noteref"><a href="#fn:airbnb" class="footnote" rel="footnote">1</a></sup>.</p>
+
+<p>AirBnB’s business model relies on a “sharing economy”, by taking a cut everytime someone books a stay. One good aspect of this service is that it doesn’t require hosts to pay to list their properties. Hosts can always list what they want and also set the price accordingly <sup id="fnref:investopedia" role="doc-noteref"><a href="#fn:investopedia" class="footnote" rel="footnote">2</a></sup>. Also, moving on to the safety side, AirBnB provides some regulations on how both hosts and users should communicate, ensuring that everyone feels safe and there are no threats, which could result in booking cancellations or even blocking users.</p>
+
+<p>In this article we are going to walk you through the current scene of AirBnB rentals in the beautiful city of Copenhagen. Whether you are thinking of visiting the city and are curious to know all the facts and figures about rentals in the city, or if you are thinking of investing in the listing your own property on the platform, this article is going to answer some of your most important questions. First we present some facts and figures and try to analyze some trends that might not be visible on the surface. Once you have gotten a lay of the land, so to speak, you can explore the data by yourself! Using the interactive map we have provided in this article. Lets begin!</p>
+
+<h3 id="introduction-to-dataset-️">Introduction to Dataset ⚙️</h3>
+
+<p>First of all we want to introduce a little bit our source of all these wonderful charts and information. In this post, we’ll be exploring a dataset known as <a href="https://insideairbnb.com/">Inside AirBnB</a>. The Copenhagen dataset contains information about all the properties that are listed on AirBnB’s platform, as of September 2023. The dataset includes information for over 18,000 properties listed as AirBnB rentals in Copenhagen city. We’ll be taking a deep dive into this data to find interesting patterns, to try and answer some of your burning questions, such as, why do listings in certain neighborhoods have lower rent per night than others? What are the pricest neighborhoods to rent in Copenhagen? What type of accomodations are usually offered? What is the relationship with pricing and ratings? What can we know about hosts in Copenhagen? 🤔</p>
+
+<h3 id="price-analysis">Price Analysis</h3>
+
+<p>Let us try and answer the 3.8 Billion DKK questions<sup id="fnref:CPHimpact" role="doc-noteref"><a href="#fn:CPHimpact" class="footnote" rel="footnote">3</a></sup> (the total revenue AirBnB has earned in Denmark since 2009). The plot below gives us the first take a look at the density of rental units based on their price in different parts of the city. Indre By (which translates to “inner city”), also known as Copenhagen K or Downtown Copenhagen, has the highest average price of rental units available across the city. BnB listings in this area are going to cost you upwards of DKK 1600 for a stay. Indre By lies at the heart of the city so this is kind of unsurprising, but we still provide some plausible reasons behind the unsually high pricing.</p>
+
+<p><img src="/images/price_density_neighborhood.png" style="width: 100%; height: auto;" /></p>
+
+<p>Let us now find out the the average price of rental units across the city by taking a look at the figure below. Of course, we see the similar trend but this chart brings us closer to a concrete value for each neighborhood. Outliers have been accounted for in this data as well, which is why the first figure shows us density estimates that are not perfect normal distributions.</p>
+
+<p><img src="/images/avg_neighborhood_price.png" style="width: 100%; height: auto;" /></p>
+
+<p>In this elegant visualization, we delve into the pricing and rating landscapes of rental properties, captured through meticulously plotted histograms and a revealing scatter plot. The majority of properties boast near-perfect ratings, reflecting a market where excellence predominates and guest satisfaction is high. Turning to the price distribution, it’s a tale of affordability with most properties priced below 1,000 DKK, hinting at a diverse array of lodging options suitable for various budgets.</p>
+
+<p><img src="/images/price.png" style="width: 100%; height: auto;" /></p>
+
+<p>In the following section we try to explain why it is this way but for now lets look at some more data. The provided pie charts offer a detailed breakdown of various aspects of rental properties in Copenhagen, ranging from bedroom and bed distribution to bath facilities and room types. The majority of listings feature one bedroom, indicating a prevalence of smaller accommodations suitable for solo travelers or couples. Similarly, the bed distribution chart shows a dominance of properties with one bed, aligning with the bedroom data. The bath distribution highlights that most properties provide one bathroom, enhancing convenience for guests. Additionally, the room type distribution chart reveals that a vast majority of properties are entire homes or apartments, suggesting a preference among travelers for privacy and full amenities, with only a small percentage opting for private or shared rooms. These visuals collectively paint a comprehensive picture of the rental options available, showcasing preferences and trends within the Copenhagen housing market.</p>
+
+<h3 id="room-type-analysis">Room type analysis</h3>
+
+<p>The provided bar charts offer a detailed breakdown of various aspects of rental properties in Copenhagen, ranging from bedroom and bed distribution to bath facilities and room types. The majority of listings feature one bedroom, indicating a prevalence of smaller accommodations suitable for solo travelers or couples. Similarly, the bed distribution chart shows a dominance of properties with one bed, aligning with the bedroom data. The bath distribution highlights that most properties provide one bathroom, enhancing convenience for guests. Additionally, the room type distribution chart reveals that a vast majority of properties are entire homes or apartments, suggesting a preference among travelers for privacy and full amenities, with only a small percentage opting for private or shared rooms. These visuals collectively paint a comprehensive picture of the rental options available, showcasing preferences and trends within the Copenhagen housing market.</p>
+
+<iframe src="/data_htmls/distribution.html" height="550" width="100%" style="border:none;"></iframe>
+
+<h3 id="neighborhood-analysis">Neighborhood analysis</h3>
+
+<p>As a starter, we present a choropleth map that covers the distribution of rentals per neighborhood in Copenhagen, starting from green as the lowest up to red as the highest number.</p>
+
+<iframe src="/data_htmls/choropleth_map_landmarks.html" height="500" width="100%"></iframe>
+
+<p>We introduce a choropleth map that vividly illustrates the distribution of rental properties across Copenhagen neighborhoods. The color gradient starts with green, representing areas with the fewest rentals, and progresses to red, indicating neighborhoods with the highest concentration of rentals. This visual tool offers a straightforward depiction of rental density across the city.</p>
+
+<iframe src="/data_htmls/hexagon_layer.html" height="500" width="100%"></iframe>
+
+<h5 id="trending-neighborhoods">Trending neighborhoods</h5>
+
+<p>At a first glance, notice how 3 neighborhoods stand out as the ones with the highest number of rentals: <strong>Nørrebro, Vesterbro-Kongens Enghave, and Indre By</strong>. According to <em>Sølver</em> <sup id="fnref:nghbs" role="doc-noteref"><a href="#fn:nghbs" class="footnote" rel="footnote">4</a></sup>, these 3 neighborhoods, along with Frederiksberg, are the best in Copenhagen. They all offer a lot of entertainment, restaurants, bakeries, shops, and sightseeing. For instance, Nørrebro is recognized for its authentic and local Copenhagen atmosphere, with several Danish bakeries 🥐 and local designer shops 👗, while Indre By is renowned for its list of sightseeing attractions 🧳🏛️, which can actually be seen on the map with the red markers ❗ <sup id="fnref:landmarks" role="doc-noteref"><a href="#fn:landmarks" class="footnote" rel="footnote">5</a></sup>.</p>
+
+<p>More than half of the landlords typically offer their properties just one month in advance. However, in our analysis, when filtering out listings available for fewer than 180 days, <strong>Indre By</strong> dramatically leads over <strong>Nørrebro and Vesterbro-Kongens Enghave</strong> in listing percentages. Here is an interesting fact. Most of the properties that are listed in <strong>Indre By</strong> are properties which are not occupied by the owners. This means that the owners can rent these units for longer durations of time. Since, <strong>Indre By</strong> is a tourist heartland, which is full of attractions, restaurants and the rich and vibrant culture of Denmark, savvy landlords have purpose built properties that must be occupied for longer duration of times. This allows the landlords to maximize their profits. <br />
+<img src="/images/filter_available.png" style="width: 100%; height: auto;" /></p>
+
+<h5 id="harder-to-get-to-neighborhoods">Harder to get to neighborhoods</h5>
+
+<p>On the other hand, notice the 4 neighborhoods with the least amount of rentals: <strong>Bispebjerg, Brønshøj-Husum, Vanløse, and Valby</strong>. An interesting question might jump from this: why are all these neighborhoods on the west part of the city? Although these neighborhoods also offer a lot, there is a small issue in their location that probably makes people resist from renting their places: <strong>less access to public transportation</strong>.</p>
+
+<p><img src="/images/transport.png" style="max-width: 80%; height: auto; display: block; margin: 0 auto;" /></p>
+
+<!-- ![Copenhagen metro and railway system]("/images/transport.jpg") -->
+
+<p>If we observe the public transportation map of Copenhagen 🚄<sup id="fnref:transport" role="doc-noteref"><a href="#fn:transport" class="footnote" rel="footnote">6</a></sup>, we can immediately notice something about the metro and the trains: most of the routes are located on the east part of the city. This is something interesting to note if you are planning on visiting Copenhagen. Even though there are a lot of bus routes and services offered in these neighborhoods, train and metro services are lacking, with most of them only having a couple of stops.</p>
+
+<h4 id="lets-play-with-the-data">Let’s Play with the data</h4>
+
+<p>Feel free to play around with the following map containing markers for all AirBnB rentals in Copenhagen! You can filter out by neighborhoods, and zoom in to find interesting patterns, or even find if there are any rentals near your place. Maybe you’ll decide to rent your place if you live in an area with a lack of rentals 😊</p>
+
+<iframe src="/data_htmls/airbnbs_marker.html" height="500" width="100%"></iframe>
+
+<h4 id="references">References</h4>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:airbnb" role="doc-endnote">
+      <p>AirBnB. (2023). About us. Retrieved from <a href="https://news.airbnb.com/about-us/">https://news.airbnb.com/about-us/</a> <a href="#fnref:airbnb" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:investopedia" role="doc-endnote">
+      <p>Folger, J. (2023). How Airbnb Works—for Hosts, Guests, and the Company Itself. From a single air mattress in 2007 to an S&amp;P 500 listing today. Retrieved from <a href="https://www.investopedia.com/articles/personal-finance/032814/pros-and-cons-using-airbnb.asp">https://www.investopedia.com/articles/personal-finance/032814/pros-and-cons-using-airbnb.asp</a> <a href="#fnref:investopedia" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:CPHimpact" role="doc-endnote">
+      <p>AirBnB’s impact in Copenhagen. <a href="https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/Report-Airbnb%E2%80%99s-Impact-in-Copenhagen.pdf">Report published by AirBnB</a> <a href="#fnref:CPHimpact" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:nghbs" role="doc-endnote">
+      <p>Sølver, C. (2022). The best neighborhoods in Copenhagen to find your hygge. Retrieved from <a href="https://www.lonelyplanet.com/articles/best-neighborhoods-in-copenhagen">https://www.lonelyplanet.com/articles/best-neighborhoods-in-copenhagen</a> <a href="#fnref:nghbs" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:landmarks" role="doc-endnote">
+      <p>Visit Copenhagen (2024). Top attractions in Copenhagen. Retrieved from <a href="https://www.visitcopenhagen.com/copenhagen/activities/top-attractions-copenhagen">https://www.visitcopenhagen.com/copenhagen/activities/top-attractions-copenhagen</a> <a href="#fnref:landmarks" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:transport" role="doc-endnote">
+      <p>Kristofer Torbjørn, K. &amp; Omelekhin, P (2023). A New Rapid Transit Map of Copenhagen. Retrieved from [https://cphtransitmap.dk/en/] (https://cphtransitmap.dk/en/) <a href="#fnref:transport" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+        <hr>
+
+        <div class="clearfix">
+
+          
+          
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          
+          <li class="list-inline-item">
+            <a href="mailto:siyuan.dan@outlook.com">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          <li class="list-inline-item">
+            <a href="https://twitter.com/jekyllrb">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+          
+          
+          <li class="list-inline-item">
+            <a href="https://github.com/SYDeng00">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+          
+        </ul>
+        <p class="copyright text-muted">Copyright &copy;  2024</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/vendor/startbootstrap-clean-blog/js/scripts.js"></script>
+
+<script src="/assets/scripts.js"></script>
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+
+
+
+</body>
+
+</html>
