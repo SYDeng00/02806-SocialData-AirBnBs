@@ -5,7 +5,7 @@ Welcome to our project repository where we explore the fascinating world of Airb
 ## Web Page Link
 For a detailed exploration and visual representation of our findings, please visit our news-style article:
 Airbnb Neighborhoods in Copenhagen - An Analysis
-https://sydeng00.github.io/2024/04/24/AirBnB-Neighborhoods.html
+[https://sydeng00.github.io/2024/04/24/AirBnB-Neighborhoods.html](https://sydeng00.github.io/02806-SocialData-Airbnb/)
 
 ## Objectives
 The main goals of this project are:
