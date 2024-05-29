@@ -27,8 +27,8 @@ twitter_username: jekyllrb
 github_username:  SYDeng00
 
 # Build settings
-# theme: minima
-remote_theme: StartBootstrap/startbootstrap-clean-blog-jekyll
+theme: minima
+# remote_theme: StartBootstrap/startbootstrap-clean-blog-jekyll
 plugins:
   - jekyll-feed
 
